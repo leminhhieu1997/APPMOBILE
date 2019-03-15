@@ -1,0 +1,4 @@
+#Sat Mar 09 09:01:02 ICT 2019
+base.0=E\:\\School\\HOC KY 9\\laptrinhapp\\LatBai-master\\ChoiBai\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\9
+path.0=classes.dex
+renamed.0=classes.dex
