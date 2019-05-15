@@ -1,0 +1,4 @@
+#Thu May 16 00:25:31 ICT 2019
+base.0=E\:\\School\\HOC KY 9\\BT android\\baitap\\BaiTapMauTuan4\\baitap1\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

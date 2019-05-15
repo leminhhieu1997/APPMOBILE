@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/BaiTapMauTuan4.iml" filepath="$PROJECT_DIR$/BaiTapMauTuan4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baitap1/baitap1.iml" filepath="$PROJECT_DIR$/baitap1/baitap1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baitap1country/baitap1country.iml" filepath="$PROJECT_DIR$/baitap1country/baitap1country.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baitap2/baitap2.iml" filepath="$PROJECT_DIR$/baitap2/baitap2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baitap4/baitap4.iml" filepath="$PROJECT_DIR$/baitap4/baitap4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baitap5/baitap5.iml" filepath="$PROJECT_DIR$/baitap5/baitap5.iml" />
+      <module fileurl="file://$PROJECT_DIR$/baitapmau/baitapmau.iml" filepath="$PROJECT_DIR$/baitapmau/baitapmau.iml" />
+      <module fileurl="file://$PROJECT_DIR$/batap3/batap3.iml" filepath="$PROJECT_DIR$/batap3/batap3.iml" />
+    </modules>
+  </component>
+</project>
