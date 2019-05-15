@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ql_sinhvien">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".update_diem"
+            android:parentActivityName=".view_monhoc"></activity>
+        <activity android:name=".view_monhoc"
+            android:parentActivityName=".view_sinhvien"/>
+        <activity android:name=".view_sinhvien"
+            android:parentActivityName=".HomeMain"/>
+        <activity
+            android:name=".update_monhoc"
+            android:parentActivityName=".Home_mh" />
+        <activity
+            android:name=".Home_mh"
+            android:parentActivityName=".HomeMain" />
+        <activity
+            android:name=".Home_sv"
+            android:parentActivityName=".HomeMain" />
+        <activity
+            android:name=".Home"
+            android:parentActivityName=".HomeMain" />
+        <activity
+            android:name=".update_sinhvien"
+            android:parentActivityName=".Home_sv" />
+        <activity
+            android:name=".add_sinhvien"
+            android:parentActivityName=".Home_sv" />
+        <activity
+            android:name=".update_khoa"
+            android:parentActivityName=".Home" />
+        <activity android:name=".HomeMain">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
