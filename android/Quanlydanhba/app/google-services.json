@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1069442850559",
+    "firebase_url": "https://qldanhba-fbcaa.firebaseio.com",
+    "project_id": "qldanhba-fbcaa",
+    "storage_bucket": "qldanhba-fbcaa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1069442850559:android:d47d52f167dec98a",
+        "android_client_info": {
+          "package_name": "com.nhanhoa.quanlydanhba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1069442850559-88o1fvhkqb9mrim3s38s2ubsvnhcvcba.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nhanhoa.quanlydanhba",
+            "certificate_hash": "60dd78e74c9ac138c85136854e53df1004c4517c"
+          }
+        },
+        {
+          "client_id": "1069442850559-peoka2amadfu7uult3fmtb6tepftu7n6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbgsmi9VdYNroL-2wLyn9cqbmw_7xP3EY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1069442850559-peoka2amadfu7uult3fmtb6tepftu7n6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

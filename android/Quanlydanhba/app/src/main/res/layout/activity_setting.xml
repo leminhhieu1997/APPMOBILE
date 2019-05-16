@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBack"
+    android:padding="6dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp">
+
+            <TextView
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Chỉnh sửa liên hệ"
+                android:textSize="7.5pt"
+                android:textColor="@color/colorWhite"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_check_white"
+                android:id="@+id/upload"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:paddingBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:gravity="center_horizontal"
+                android:layout_width="60dp"
+                android:layout_height="150dp"
+                android:orientation="vertical">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/img_contact"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/ic_insert_emoticon" />
+
+                <TextView
+                    android:id="@+id/change_img"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="sửa"
+                    android:textColor="@color/colorWhite"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="30dp">
+                <EditText
+                    android:id="@+id/lname_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Họ..."
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorHint"
+                    android:background="@drawable/border_bottom"
+                    />
+
+                <EditText
+                    android:id="@+id/name_contact"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Tên..."
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorHint"
+                    android:background="@drawable/border_bottom"/>
+
+                <EditText
+                    android:id="@+id/company_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Công ty..."
+                    android:textColor="@color/colorWhite"
+                    android:textColorHint="@color/colorHint"
+                    android:background="@drawable/border_bottom"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_bottom">
+            <TextView
+                android:id="@+id/clear_phone"
+                android:textSize="7.5pt"
+                android:drawableLeft="@drawable/ic_remove_circle_red"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:text="điện thoại"
+                android:textColor="@color/colorWhite"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/border_right"
+                />
+
+            <EditText
+                android:id="@+id/phone_contact"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/border_bottom"
+                android:hint="số điện thoại..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_home_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_bottom"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/remove_home_phone"
+                android:textSize="7.5pt"
+                android:drawableLeft="@drawable/ic_remove_circle_red"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:text="nhà"
+                android:textColor="@color/colorWhite"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/border_right"
+                />
+
+            <EditText
+                android:id="@+id/home_contact"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/border_bottom"
+                android:hint="số điện thoại..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/container_company_phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_bottom"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/remove_company_phone"
+                android:textSize="7.5pt"
+                android:drawableLeft="@drawable/ic_remove_circle_red"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:text="công ty"
+                android:textColor="@color/colorWhite"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/border_right"
+                />
+
+            <EditText
+                android:id="@+id/company_contact"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/border_bottom"
+                android:hint="số điện thoại..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/container_home_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_bottom"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/remove_home_address"
+                android:textSize="7.5pt"
+                android:drawableLeft="@drawable/ic_remove_circle_red"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:text="địa chỉ"
+                android:textColor="@color/colorWhite"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/border_right"
+                />
+
+            <EditText
+                android:id="@+id/home_address"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/border_bottom"
+                android:hint="địa chỉ nhà..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/add_address"
+            android:textSize="7.5pt"
+            android:drawableLeft="@drawable/ic_add_circle_green"
+            android:drawablePadding="10dp"
+            android:padding="15dp"
+            android:text="thêm địa chỉ nhà riêng"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/border_bottom" />
+
+        <LinearLayout
+            android:id="@+id/container_gmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_bottom"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/remove_gmail"
+                android:textSize="7.5pt"
+                android:drawableLeft="@drawable/ic_remove_circle_red"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:text="gmail"
+                android:textColor="@color/colorWhite"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/border_right"
+                />
+
+            <EditText
+                android:id="@+id/gmail"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/border_bottom"
+                android:hint="tên gmail..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/add_gmail"
+            android:textSize="7.5pt"
+            android:drawableLeft="@drawable/ic_add_circle_green"
+            android:drawablePadding="10dp"
+            android:padding="15dp"
+            android:text="thêm gmail"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/border_bottom" />
+
+        <LinearLayout
+            android:id="@+id/container_fb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_bottom"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/remove_fb"
+                android:textSize="7.5pt"
+                android:drawableLeft="@drawable/ic_remove_circle_red"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:text="facebook"
+                android:textColor="@color/colorWhite"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/border_right"
+                />
+
+            <EditText
+                android:id="@+id/fb_name"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/border_bottom"
+                android:hint="tên facebook..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/add_fb"
+            android:textSize="7.5pt"
+            android:drawableLeft="@drawable/ic_add_circle_green"
+            android:drawablePadding="10dp"
+            android:padding="15dp"
+            android:text="thêm facebook"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/border_bottom" />
+
+        <LinearLayout
+            android:id="@+id/container_url"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/border_bottom"
+            android:visibility="gone">
+            <TextView
+                android:id="@+id/remove_url"
+                android:textSize="7.5pt"
+                android:drawableLeft="@drawable/ic_remove_circle_red"
+                android:drawablePadding="10dp"
+                android:padding="15dp"
+                android:text="web"
+                android:textColor="@color/colorWhite"
+                android:layout_width="145dp"
+                android:layout_height="55dp"
+                android:background="@drawable/border_right"
+                />
+
+            <EditText
+                android:id="@+id/url"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:padding="15dp"
+                android:background="@drawable/border_bottom"
+                android:hint="đường dẫn url..."
+                android:textColor="@color/colorWhite"
+                android:textColorHint="@color/colorHint" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/add_url"
+            android:textSize="7.5pt"
+            android:drawableLeft="@drawable/ic_add_circle_green"
+            android:drawablePadding="10dp"
+            android:padding="15dp"
+            android:text="thêm url"
+            android:textColor="@color/colorWhite"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@drawable/border_bottom" />
+
+        <TextView
+            android:id="@+id/block_call"
+            android:gravity="center"
+            android:textSize="9.5pt"
+            android:paddingTop="15dp"
+            android:text="Chặn cuộc gọi"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
+        <TextView
+            android:id="@+id/active_call"
+            android:gravity="center"
+            android:textSize="9.5pt"
+            android:paddingTop="15dp"
+            android:text="Bỏ chặn cuộc gọi"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/block_sms"
+            android:gravity="center"
+            android:textSize="9.5pt"
+            android:text="Chặn tin nhắn"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
+        <TextView
+            android:id="@+id/active_sms"
+            android:gravity="center"
+            android:textSize="9.5pt"
+            android:text="Bỏ chặn tin nhắn"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/spam_sms"
+            android:gravity="center"
+            android:textSize="9.5pt"
+            android:text="Spam tin nhắn"
+            android:textColor="@color/colorAccent"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+
+        <TextView
+            android:id="@+id/delete_contact"
+            android:gravity="center"
+            android:textSize="10pt"
+            android:text="Xóa liên hệ"
+            android:textColor="@color/colorRed"
+            android:layout_width="match_parent"
+            android:layout_height="55dp" />
+    </LinearLayout>
+
+
+
+
+</ScrollView>
