@@ -20,16 +20,17 @@
 
         <EditText
             android:id="@+id/phone_contact"
-            android:layout_width="316dp"
+            android:layout_width="336dp"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="6dp"
             android:layout_weight="1"
             android:gravity="center"
             android:maxLength="11"
             android:textColor="@color/colorWhite"
-            android:textSize="15pt" />
+            android:textSize="20pt" />
 
         <ImageView
+            android:background="@drawable/ripple"
             android:id="@+id/backspace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

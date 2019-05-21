@@ -62,7 +62,65 @@
     <last-search-timestamp>1557915376595</last-search-timestamp>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dac57e70-25fb-4ae9-8e85-bf15724b3eac" name="Default Changelist" comment="" />
+    <list default="true" id="dac57e70-25fb-4ae9-8e85-bf15724b3eac" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GIUAKY/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GIUAKY/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GIUAKY/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GIUAKY/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../GIUAKY/GIUAKY.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/Register.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/com/nhanhoa/quanlydanhba/adapters/MenuAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/com/nhanhoa/quanlydanhba/models/ItemMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/drawable/ic_search_white.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/activity_signup.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/item_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/menu/main_menu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/menu/search_menu.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Quanlydanhba.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Quanlydanhba.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/fileContent/fileContent.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/javaCompile/classAnalysis.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/javaCompile/javaCompile.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/javaCompile/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../GIUAKY/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../../GIUAKY/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../../GIUAKY/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GIUAKY/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../GIUAKY/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/app/app.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../GIUAKY/laptrinhapp.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../LEMINHHIEU/New Text Document.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentContact.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentContact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/Login.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/RecyclerViewAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/RecyclerViewAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/SettingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/java/com/nhanhoa/quanlydanhba/SettingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/activity_login.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/activity_login.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/activity_setting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/activity_setting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/add_contact_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/add_contact_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/contact_fragment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/app/src/main/res/layout/contact_fragment.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../android/Quanlydanhba/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../android/Quanlydanhba/build.gradle" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
     <ignored path="$PROJECT_DIR$/app/build/generated/not_namespaced_r_class_sources/" />
@@ -148,83 +206,7 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Blacklist.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Login.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/MainActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="748">
-              <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/CallBarring.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/google-services.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/com/android/internal/telephony/ITelephony.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/SettingActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3944">
-              <caret line="283" selection-start-line="283" selection-end-line="283" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -238,6 +220,9 @@
     <findStrings>
       <find>removePhone()</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -262,13 +247,12 @@
     <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,52 +260,30 @@
               <item name="Quanlydanhba" type="b2602c69:ProjectViewProjectNode" />
               <item name="Quanlydanhba" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
-            <path>
-              <item name="Quanlydanhba" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Quanlydanhba" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
             <path>
               <item name="Quanlydanhba" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-            </path>
-            <path>
-              <item name="Quanlydanhba" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="Quanlydanhba" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
-              <item name="quanlydanhba" type="cbb59c9e:AndroidPsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Quanlydanhba" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="Quanlydanhba" type="1abcf292:AndroidViewProjectNode" />
-              <item name="Gradle Scripts" type="ae0cef3a:AndroidBuildScriptsGroupNode" />
+              <item name="Quanlydanhba" type="e9137016:NonAndroidModuleNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="device.picker.selection" value="Pixel_2_API_26" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../android/Quanlydanhba" />
+    <property name="not.eligible.for.single.variant.sync" value="true" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -453,10 +415,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1881663" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19062027" />
       <window_info id="Structure" order="1" side_tool="true" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -465,13 +426,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Capture Tool" order="7" />
       <window_info id="Captures" order="8" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="0" weight="0.32936078" />
-      <window_info anchor="bottom" id="Android Profiler" order="1" weight="0.32993197" />
-      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="TODO" order="0" weight="0.3282313" />
+      <window_info anchor="bottom" id="Android Profiler" order="1" show_stripe_button="false" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.32993197" />
       <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5015129" side_tool="true" weight="0.32993197" />
-      <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848714" weight="0.32719395" />
-      <window_info anchor="bottom" id="Logcat" order="6" weight="0.32879046" />
+      <window_info anchor="bottom" id="Version Control" order="4" />
+      <window_info anchor="bottom" id="Build" order="5" sideWeight="0.49848714" visible="true" weight="0.3265306" />
+      <window_info active="true" anchor="bottom" id="Logcat" order="6" visible="true" weight="0.3282313" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.32936078" />
       <window_info anchor="bottom" id="Debug" order="8" />
       <window_info anchor="bottom" id="Find" order="9" />
@@ -485,125 +446,28 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentCall.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Contact.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_item.xml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/contact_dialog.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/RecyclerViewAdapterForSMS.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/SMS.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add_contact_fragment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentCall.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Contact.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/detail_item.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/contact_dialog.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/RecyclerViewAdapterForSMS.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/SMS.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/add_contact_fragment.xml" />
     <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/47d83af4e182a4fd1168b13ed7f3fa99/jars/classes.jar!/android/support/v4/app/FragmentManagerImpl.class" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentSms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="26" column="70" selection-start-line="26" selection-start-column="70" selection-end-line="26" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentContact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="31" column="23" selection-start-line="31" selection-start-column="23" selection-end-line="31" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sms_fragment.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/ViewPageAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="29" column="39" lean-forward="true" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentSms.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentContact.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/sms_fragment.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/ViewPageAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/ITelephony/aidl.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/com/android/internal/telephony/ITelephony/aidl.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/ITelephony.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentAddContact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="82" column="29" selection-start-line="82" selection-start-column="29" selection-end-line="82" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Blacklist.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/com/android/internal/telephony/ITelephony.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="22" selection-start-line="3" selection-start-column="22" selection-end-line="3" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/SettingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3944">
-          <caret line="283" selection-start-line="283" selection-end-line="283" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/FragmentAddContact.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Blacklist.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/MainActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/com/android/internal/telephony/ITelephony.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/SettingActivity.java" />
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/os/Binder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="334">
@@ -611,54 +475,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/CallBarring.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="21" column="54" selection-start-line="21" selection-start-column="54" selection-end-line="21" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/google-services.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="56" selection-start-line="10" selection-start-column="56" selection-end-line="10" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/RecyclerViewAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="101" selection-start-line="101" selection-end-line="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Login.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/CallBarring.java" />
+    <entry file="file://$PROJECT_DIR$/app/google-services.json" />
+    <entry file="file://$PROJECT_DIR$/app/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/build.gradle" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/RecyclerViewAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/nhanhoa/quanlydanhba/Login.java" />
   </component>
 </project>

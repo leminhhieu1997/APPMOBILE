@@ -34,8 +34,9 @@
 
     <!-- Left Menu -->
 
-    <android.support.design.widget.NavigationView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/nav"
+        android:layout_width="250dp"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true">
@@ -51,7 +52,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/navigation_header_height"
-                android:background="@color/colorYelow"
+                android:background="@drawable/background"
                 android:gravity="bottom"
                 android:orientation="vertical"
                 android:paddingBottom="@dimen/activity_vertical_margin"
@@ -60,22 +61,27 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-                <ImageView
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/activity_main_imv_avatar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:paddingTop="@dimen/activity_vertical_margin"
-                    app:srcCompat="@mipmap/ic_launcher_round"/>
+                    android:layout_width="80dp"
+                    android:layout_height="70dp"
+                    android:src="@drawable/hoa" />
 
                 <TextView
+                    android:textSize="16sp"
                     android:id="@+id/activity_main_tv_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/activity_vertical_margin"
                     android:text="Tên tui.."
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                    android:textColor="@color/colorBlueDark" />
 
                 <TextView
+                    android:textColor="@color/colorBlueDark"
+                    android:textSize="14sp"
                     android:id="@+id/activity_main_tv_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -83,84 +89,88 @@
 
             </LinearLayout>
 
+            <ListView
+                android:id="@+id/menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
             <!-- Item Info -->
 
-            <LinearLayout
-                android:id="@+id/item_edit"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/navigation_item_height"
-                android:layout_marginTop="@dimen/padding_tiny_plus_one"
-                android:background="@android:color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+            <!--<LinearLayout-->
+                <!--android:id="@+id/item_edit"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/navigation_item_height"-->
+                <!--android:layout_marginTop="@dimen/padding_tiny_plus_one"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+                <!--android:paddingRight="@dimen/activity_horizontal_margin">-->
 
-                <ImageView
-                    android:layout_width="@dimen/navigation_item_icon_size"
-                    android:layout_height="@dimen/navigation_item_icon_size"
-                    android:src="@drawable/ic_edit_black" />
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/navigation_item_icon_size"-->
+                    <!--android:layout_height="@dimen/navigation_item_icon_size"-->
+                    <!--android:src="@drawable/ic_edit_black" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/padding_extra_extra_large"
-                    android:text="Sửa thông tin" />
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/padding_extra_extra_large"-->
+                    <!--android:text="Sửa thông tin" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <!-- Item logout -->
+            <!--&lt;!&ndash; Item logout &ndash;&gt;-->
 
-            <LinearLayout
-                android:id="@+id/item_logout"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/navigation_item_height"
-                android:layout_marginTop="@dimen/padding_tiny_plus_one"
-                android:background="@android:color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+            <!--<LinearLayout-->
+                <!--android:id="@+id/item_logout"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/navigation_item_height"-->
+                <!--android:layout_marginTop="@dimen/padding_tiny_plus_one"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+                <!--android:paddingRight="@dimen/activity_horizontal_margin">-->
 
-                <ImageView
-                    android:layout_width="@dimen/navigation_item_icon_size"
-                    android:layout_height="@dimen/navigation_item_icon_size"
-                    android:src="@drawable/ic_exit_to_app_black" />
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/navigation_item_icon_size"-->
+                    <!--android:layout_height="@dimen/navigation_item_icon_size"-->
+                    <!--android:src="@drawable/ic_exit_to_app_black" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/padding_extra_extra_large"
-                    android:text="Đăng xuất" />
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/padding_extra_extra_large"-->
+                    <!--android:text="Đăng xuất" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
-            <!-- Item Help -->
+            <!--&lt;!&ndash; Item Help &ndash;&gt;-->
 
-            <LinearLayout
-                android:id="@+id/item_help"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/navigation_item_height"
-                android:background="@android:color/white"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingLeft="@dimen/activity_horizontal_margin"
-                android:paddingRight="@dimen/activity_horizontal_margin">
+            <!--<LinearLayout-->
+                <!--android:id="@+id/item_help"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="@dimen/navigation_item_height"-->
+                <!--android:background="@android:color/white"-->
+                <!--android:gravity="center_vertical"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+                <!--android:paddingRight="@dimen/activity_horizontal_margin">-->
 
-                <ImageView
-                    android:layout_width="@dimen/navigation_item_icon_size"
-                    android:layout_height="@dimen/navigation_item_icon_size"
-                    android:src="@drawable/ic_help_outline_black" />
+                <!--<ImageView-->
+                    <!--android:layout_width="@dimen/navigation_item_icon_size"-->
+                    <!--android:layout_height="@dimen/navigation_item_icon_size"-->
+                    <!--android:src="@drawable/ic_help_outline_black" />-->
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/padding_extra_extra_large"
-                    android:text="Giúp đỡ" />
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginLeft="@dimen/padding_extra_extra_large"-->
+                    <!--android:text="Giúp đỡ" />-->
 
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
         </LinearLayout>
 
-    </android.support.design.widget.NavigationView>
+    </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -13,6 +13,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,14 +27,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.User;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -45,7 +51,11 @@ public class SettingActivity extends AppCompatActivity
     private static final int PICK_IMAGE_REQUEST =1;
     private StorageReference mStorageRef;
     private DatabaseReference mDatabaseRef;
+    private StorageReference storageRef;
     public Uri selectedImage;
+    public String Uiid;
+    public int flat;
+    public Contact user;
 
     private CircleImageView imgContact;
     private TextView changeImg;
@@ -73,6 +83,7 @@ public class SettingActivity extends AppCompatActivity
     private LinearLayout containerURL;
     private TextView activeCall;
     private TextView activeSMS;
+    private UploadTask uploadTask;
     private static int RESULT_LOAD_IMAGE = 1;
 
     //list nay la danh sach chan cuoc goi
@@ -88,8 +99,13 @@ public class SettingActivity extends AppCompatActivity
         setContentView(R.layout.activity_setting);
         setWidget();
         blockOrActive();
-        mStorageRef = FirebaseStorage.getInstance().getReference("avartar");
+        //mStorageRef = FirebaseStorage.getInstance();
+       // storageRef = mStorageRef.getReference();
+
+
+        mStorageRef = FirebaseStorage.getInstance().getReference();
         mDatabaseRef = FirebaseDatabase.getInstance().getReference("avarter");
+        //storageRef = mStorageRef.getReference();
         imgContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,36 +114,7 @@ public class SettingActivity extends AppCompatActivity
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
-//                Intent intent = new Intent();
-//                intent.setType("image/*");
-//                intent.setAction(Intent.ACTION_GET_CONTENT);
-//                startActivityForResult(intent,PICK_IMAGE_REQUEST);
-//                if(selectedImage != null){
-//                    StorageReference fireReference = mStorageRef.child( System.currentTimeMillis()+"."+getFileExtension(selectedImage));
-//                    fireReference.putFile(selectedImage)
-//                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                                @Override
-//                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                                    Toast.makeText(getApplicationContext(),"Sucess file",Toast.LENGTH_LONG).show();
-//
-//                                }
-//                            })
-//                            .addOnFailureListener(new OnFailureListener() {
-//                                @Override
-//                                public void onFailure(@NonNull Exception e) {
-//
-//                                }
-//                            })
-//                            .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-//                                @Override
-//                                public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-//                                    double progress = (100.0 * taskSnapshot.getBytesTransferred())/taskSnapshot.getTotalByteCount();
-//
-//                                }
-//                            });
-//                }else{
-//                    Toast.makeText(getApplicationContext(),"No file",Toast.LENGTH_LONG).show();
-//                }
+
 
 
             }
@@ -239,6 +226,49 @@ public class SettingActivity extends AppCompatActivity
         });
     }
 
+
+    private void upGaleryProcess(Uri linkAnh){
+        final StorageReference riversRef = mStorageRef.child("User/"+Uiid+"/"+linkAnh.getLastPathSegment());
+        uploadTask = riversRef.putFile(linkAnh);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Xu ly K thanh cong
+                Log.e("AAA",exception.toString());
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // Thanh Cong
+                uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                        if (!task.isSuccessful()) {
+                            throw task.getException();
+                        }
+
+                        // Continue with the task to get the download URL
+                        return riversRef.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+                        if (task.isSuccessful()) {
+                            Uri downloadUri = task.getResult();
+                            //AddData(downloadUri.toString(),friends.getKey());
+                            //Log.e("abcde",downloadUri.toString());
+                            user.setImage(downloadUri.toString());
+
+                        } else {
+
+                        }
+                    }
+                });
+
+            }
+        });
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -255,9 +285,24 @@ public class SettingActivity extends AppCompatActivity
             String picturePath = cursor.getString(columnIndex);
             cursor.close();
 
-            Picasso.with(this).load(selectedImage).into(imgContact);
-            //imgContact.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+            Picasso.get().load(selectedImage).into(imgContact);
+            upGaleryProcess(selectedImage);
+
         }
+    }
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Toast.makeText(this, "Đã lưu", Toast.LENGTH_SHORT).show();
+        return super.onOptionsItemSelected(item);
     }
 
     public void setWidget(){
@@ -281,6 +326,62 @@ public class SettingActivity extends AppCompatActivity
         activeCall = findViewById(R.id.active_call);
         blockSMS = findViewById(R.id.block_sms);
         activeSMS = findViewById(R.id.active_sms);
+
+
+        lnameContact = findViewById(R.id.lname_contact);
+        nameContact = findViewById(R.id.name_contact);
+        companyContact = findViewById(R.id.company_contact);
+
+
+        Intent intent = getIntent();
+         flat = intent.getIntExtra("flat",0);
+        Uiid = intent.getStringExtra("Uiid");
+
+        if(flat == 1){
+            phoneContact.setText(intent.getStringExtra("SDT"));
+            user.setPhone(intent.getStringExtra("SDT"));
+        }else{
+
+            Bundle bundle = intent.getBundleExtra("UserBundle");
+            user = (Contact) bundle.getSerializable("User");
+
+            if (!user.getImage().equals("")) {
+                Picasso.get().load(user.getImage()).into(imgContact);
+
+            }
+            phoneContact.setText(user.getPhone());
+
+            if(user.getLastName()!= null){
+                lnameContact.setText(user.getLastName());
+                //containerHomeAddress.setText(user.getAccess());
+            }
+
+            if(!user.getName().equals("")){
+                nameContact.setText(user.getName());
+            }
+
+            if(user.getCompany()!= null){
+                //companyContact.setText(user.getCompany());
+               //có công ty
+            }
+
+            if(user.getAccess()!= null){
+                // có địa chỉ
+            }
+            if(user.getGmail()!= null){
+               // có mail
+            }
+            if(user.getFacebook()!= null){
+              // có facebook
+            }
+            if(user.getUrl()!= null){
+               //có url
+            }
+
+
+        }
+
+
     }
 
     protected void addAddress(){
@@ -370,5 +471,10 @@ public class SettingActivity extends AppCompatActivity
         ContentResolver cR = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(cR.getType(uri));
+    }
+
+    private void ThemContactDB(Contact m){
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Uiid);
+        mDatabaseRef.child("contacts").setValue(user);
     }
 }

@@ -34,6 +34,7 @@ public class FragmentAddContact extends Fragment {
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnStar, btn0, btnSharp;
     private ImageView addNewPhone, backspace, call;
     private EditText phoneContact;
+    private String Uiid;
 
     public FragmentAddContact() {
     }
@@ -42,9 +43,7 @@ public class FragmentAddContact extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.add_contact_fragment, container, false);
-//        FragmentManager fm = getFragmentManager();
-//        FragmentTransaction ft = fm.beginTransaction();
-//        ft.addToBackStack("FragmentAddContact").commit();
+        Uiid = getArguments().getString("Uiid");
         setWidget();
         setEventClickView();
         return  v;
@@ -224,7 +223,10 @@ public class FragmentAddContact extends Fragment {
 
             case R.id.add_new_phone:{
                 Intent home =  new Intent(getContext(),SettingActivity.class);
-                startActivity(home,Bundle.EMPTY);
+                home.putExtra("flat",1);
+                home.putExtra("Uiid",Uiid);
+                home.putExtra("SDT",phoneContact.getText().toString().trim());
+                startActivity(home);
                 break;
             }
             case R.id.backspace:{
@@ -288,14 +290,6 @@ public class FragmentAddContact extends Fragment {
 
                     FragmentManager fm = getFragmentManager();
                     fm.popBackStack ();
-
-                    // restart app
-//                    Intent i = getActivity().getPackageManager()
-//                            .getLaunchIntentForPackage(
-//                                    getActivity().getPackageName());
-//                    i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//                    startActivity(i);
-
                     isPhoneCalling = false;
                 }
 

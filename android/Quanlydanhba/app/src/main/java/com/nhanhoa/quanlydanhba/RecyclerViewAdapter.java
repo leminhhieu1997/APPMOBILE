@@ -10,29 +10,43 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.io.Serializable;
 
 import android.widget.Button;
 
 
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import static android.support.v4.content.ContextCompat.startActivity;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> implements Filterable {
     Context context;
+    List<Contact> dataFiltered;
     List<Contact> data;
     Dialog dialog;
+   Contact x = new Contact();
+   String Uiid;
 
-    public RecyclerViewAdapter(Context context, List<Contact> data) {
+    public RecyclerViewAdapter(Context context, List<Contact> data,String Uiid) {
         this.context = context;
         this.data = data;
+        //this.dataFiltered = data;
+        this.dataFiltered = new ArrayList<>(data);
+        this.Uiid = Uiid;
+
     }
 
     @NonNull
@@ -57,16 +71,57 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder( ViewHolder viewHolder, int position) {
-        viewHolder.tvName.setText(data.get(position).getName());
-        viewHolder.tvPhone.setText(data.get(position).getPhone());
-        viewHolder.imgvP.setImageURI(data.get(position).getImage());
-        viewHolder.sttCall.setImageResource(data.get(position).getSttCall());
+        viewHolder.tvName.setText(dataFiltered.get(position).getName());
+        viewHolder.tvPhone.setText(dataFiltered.get(position).getPhone());
+        //viewHolder.imgvP.setBackgroundResource(R.drawable.hoa);
+        Picasso.get().load(dataFiltered.get(position).getImage()).into(viewHolder.imgvP);
+        viewHolder.sttCall.setImageResource(dataFiltered.get(position).getSttCall());
     }
 
     @Override
     public int getItemCount() {
-        return data.size();
+        return dataFiltered.size();
     }
+
+    @Override
+    public Filter getFilter() {
+        return dataFilter;
+    }
+
+    private Filter dataFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<Contact> filteredList = new ArrayList<>();
+
+            if(constraint == null || constraint.length() == 0){
+                //Toast.makeText(context, "list full", Toast.LENGTH_SHORT).show();
+                filteredList.addAll(data);
+                Log.e("as", "performFiltering: " + data.size()+"   " + dataFiltered.size());
+            }
+
+            else {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for (Contact contact : data){
+                    if(contact.getName().toLowerCase().trim().contains(filterPattern)){
+                        filteredList.add(contact);
+                    }
+                }
+            }
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+                dataFiltered.clear();
+                dataFiltered.addAll((List)results.values);
+                notifyDataSetChanged();
+        }
+    };
+
 
     public static class ViewHolder extends RecyclerView.ViewHolder{
 
@@ -90,15 +145,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         dialog = new Dialog(context);
         dialog.setContentView(R.layout.contact_dialog);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        x = dataFiltered.get(viewHolder.getAdapterPosition());
 
         ImageView btnSetting = dialog.findViewById(R.id.btn_setting);
         TextView dialogName = dialog.findViewById(R.id.name);
         TextView dialogPhone = dialog.findViewById(R.id.phone);
         ImageView dialogPhoto = dialog.findViewById(R.id.photo);
 
-        dialogName.setText(data.get(viewHolder.getAdapterPosition()).getName());
-        dialogPhone.setText(data.get(viewHolder.getAdapterPosition()).getPhone());
-        dialogPhoto.setImageURI(data.get(viewHolder.getAdapterPosition()).getImage());
+        dialogName.setText(dataFiltered.get(viewHolder.getAdapterPosition()).getName());
+        dialogPhone.setText(dataFiltered.get(viewHolder.getAdapterPosition()).getPhone());
+//        dialogPhoto.setImageURI(dataFiltered.get(viewHolder.getAdapterPosition()).getImage());
+        Picasso.get().load(dataFiltered.get(viewHolder.getAdapterPosition()).getImage()).into(dialogPhoto);
 
         //Toast.makeText(context, "Chọn: " + String.valueOf(viewHolder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
         Button btnCall = dialog.findViewById(R.id.btn_call);
@@ -119,7 +176,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View v) {
                 Intent home =  new Intent(context,SettingActivity.class);
-                startActivity(context, home, Bundle.EMPTY);
+                Bundle bundle = new Bundle();
+                x.setAccess("abc");
+                bundle.putSerializable("User", x);
+                home.putExtra("UserBundle", bundle);
+                home.putExtra("flat",0);
+                home.putExtra("Uiid",Uiid);
+                //startActivity(context,home);
+                context.startActivity(home);
             }
         });
         dialog.show();
@@ -128,7 +192,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private void intentSMS(int position) {
         Intent intent = new Intent();//keu goi lam mot hanh dong nao do, trao doi du lieu trong cung 1 ung dung hoac giua cac ung dung vs nhau
         intent.setAction(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("sms:"+data.get(position).getPhone()));
+        intent.setData(Uri.parse("sms:"+dataFiltered.get(position).getPhone()));
         //startActivity(intent);
         startActivity(context, intent, Bundle.EMPTY);
 
@@ -137,10 +201,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private void intentCall(int position) {
         Intent intent = new Intent();//keu goi lam mot hanh dong nao do, trao doi du lieu trong cung 1 ung dung hoac giua cac ung dung vs nhau
         intent.setAction(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel:"+data.get(position).getPhone()));
+        intent.setData(Uri.parse("tel:"+dataFiltered.get(position).getPhone()));
         //startActivity(intent);
         startActivity(context, intent, Bundle.EMPTY);
 
 
     }
+
 }

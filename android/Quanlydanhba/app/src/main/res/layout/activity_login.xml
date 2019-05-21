@@ -21,29 +21,33 @@
         android:id="@+id/userName"
         android:layout_width="250dp"
         android:layout_height="40dp"
+        android:layout_above="@+id/pass"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:textSize="16dp"
-        android:layout_marginBottom="35dp"
-        android:layout_above="@+id/pass"
-        android:layout_centerHorizontal="true" />
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:text="hieu@gmail.com"
+        android:textColor="@color/colorWhite"
+        android:textSize="16dp" />
 
     <EditText
         android:id="@+id/pass"
         android:layout_width="250dp"
         android:layout_height="40dp"
+        android:layout_alignStart="@+id/userName"
+        android:layout_alignLeft="@+id/userName"
+        android:layout_alignBottom="@+id/cardView"
+        android:layout_marginBottom="130dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:layout_marginBottom="130dp"
-        android:layout_alignBottom="@+id/cardView"
-        android:layout_alignLeft="@+id/userName"
-        android:layout_alignStart="@+id/userName" />
+        android:text="123456789"
+        android:textColor="@color/colorWhite" />
 
     <android.support.v7.widget.CardView
         android:layout_width="300dp"
@@ -57,6 +61,7 @@
         android:layout_centerHorizontal="true">
 
         <RelativeLayout
+            android:background="@drawable/ripple_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/login">
@@ -73,6 +78,8 @@
     </android.support.v7.widget.CardView>
 
     <TextView
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/ripple_1"
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

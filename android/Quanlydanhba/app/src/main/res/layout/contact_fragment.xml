@@ -5,25 +5,6 @@
     android:background="@color/colorBack"
     android:padding="16dp">
 
-    <LinearLayout
-        android:background="@color/colorBackSearch"
-        android:padding="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        >
-
-        <EditText
-
-            android:drawableLeft="@drawable/ic_search_black"
-            android:hint="Tim kiem..."
-            android:background="#fff"
-            android:textSize="20dp"
-            android:textColor="#D1C8C8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
-
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

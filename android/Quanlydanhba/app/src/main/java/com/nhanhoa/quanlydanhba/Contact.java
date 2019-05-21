@@ -1,58 +1,38 @@
 package com.nhanhoa.quanlydanhba;
 
-import android.net.Uri;
 
-public class Contact {
+import com.google.firebase.database.IgnoreExtraProperties;
+
+import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@IgnoreExtraProperties
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+public class Contact implements Serializable {
+
+    private  String lastName;
     private String name;
+    private String Company;
     private String phone;
-    private Uri image;
+    private String Access;
+    private String gmail;
+    private String Facebook;
+    private String url ;
+    private String image;
     private int sttCall;
+    private int sttBox;
 
-    public Contact() {
-    }
-
-    public Contact(String name, String phone, Uri image) {
+    public Contact(String name, String phone, String image, int sttCall) {
         this.name = name;
         this.phone = phone;
         this.image = image;
-    }
-
-    public Contact(String name, String phone, Uri image, int sttCall) {
-        this.name = name;
-        this.phone = phone;
-        this.image = image;
-        this.sttCall = sttCall;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Uri getImage() {
-        return image;
-    }
-
-    public void setImage(Uri image) {
-        this.image = image;
-    }
-
-    public int getSttCall() {
-        return sttCall;
-    }
-
-    public void setSttCall(int sttCall) {
         this.sttCall = sttCall;
     }
 }
