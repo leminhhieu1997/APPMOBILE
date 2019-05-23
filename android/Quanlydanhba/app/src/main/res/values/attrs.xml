@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ds">
+        <attr name="gradient_1" format="color"/>
+        <attr name="gradient_2" format="color"/>
+        <attr name="gradient_3" format="color"/>
+        <attr name="ic" format="color"/>
+        <attr name="ic_black" format="color"/>
+        <attr name="ic_red" format="color"/>
+        <attr name="ic_green" format="color"/>
+        <attr name="text_color" format="color"/>
+
+
+    </declare-styleable>
+</resources>

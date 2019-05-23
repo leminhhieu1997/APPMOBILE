@@ -17,22 +17,23 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class User implements Serializable {
+    private String id;
     private String name;
     private  String password;
     private  String email;
     private String sex;
     private String birthday;
     private String linkAvatar;
-    private String live;
+    //private String live;
     private String work;
-    private String study;
+    //private String study;
     private String relationship;
     private String language;
     private String isOnline;
-    private String status;
-    private Long timestamp;
-    private String history;
+    //private String status;
+    //private Long timestamp;
+    //private String history;
     private String tokenNotification;
     private String linkBackground;
-    private List<Contact> contacts ;
+   // private List<Contact> contacts ;
 }

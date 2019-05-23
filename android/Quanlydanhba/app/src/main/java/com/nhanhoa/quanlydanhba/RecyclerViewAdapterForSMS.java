@@ -36,7 +36,7 @@ public class RecyclerViewAdapterForSMS extends RecyclerView.Adapter<RecyclerView
         viewHolder.smsItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Hien tin nhan", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.detail_sms, Toast.LENGTH_SHORT).show();
                 //dialog.show();
                 //showContactDialog(viewHolder, viewHolder.getAdapterPosition());
             }

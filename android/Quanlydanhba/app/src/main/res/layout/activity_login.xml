@@ -27,10 +27,10 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
         android:text="hieu@gmail.com"
-        android:textColor="@color/colorWhite"
+        android:textColor="?attr/ic"
         android:textSize="16dp" />
 
     <EditText
@@ -44,10 +44,10 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/hint_pass"
         android:inputType="textPassword"
         android:text="123456789"
-        android:textColor="@color/colorWhite" />
+        android:textColor="?attr/ic" />
 
     <android.support.v7.widget.CardView
         android:layout_width="300dp"
@@ -71,19 +71,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="Login"
-                android:textColor="#fff"
+                android:text="@string/login"
+                android:textColor="?attr/ic"
                 android:textSize="18sp" />
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
     <TextView
-        android:textColor="@color/colorWhite"
+        android:textColor="?attr/ic"
         android:background="@drawable/ripple_1"
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register Here."
+        android:text="@string/registerHere"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="6dp" />
@@ -96,26 +96,6 @@
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignStart="@+id/imageView"
         android:id="@+id/linearLayout">
-
-        <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/twitter" />
-
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            app:srcCompat="@drawable/instagram" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="30dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            app:srcCompat="@drawable/facebook" />
     </LinearLayout>
 
 </RelativeLayout>

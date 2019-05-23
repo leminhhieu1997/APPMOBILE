@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerViewAccessibilityDelegate;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,14 +17,31 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.SearchView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.StorageReference;
+import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.Dao.BlacklistDAO;
+import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.Blacklist;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FragmentContact extends Fragment {
     View v;
     RecyclerView recyclerView;
     private List<Contact> listContact;
     RecyclerViewAdapter recyclerViewAdapter;
+    private StorageReference mStorageRef;
+    private DatabaseReference mDatabaseRef;
+
+    private BlacklistDAO blackListDao;
+    String Uiid;
 
     public FragmentContact() {
     }
@@ -33,7 +51,7 @@ public class FragmentContact extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.contact_fragment, container, false);
         recyclerView = v.findViewById(R.id.contact_recyclerview);
-        String Uiid  = getArguments().getString("Uiid");
+
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(),listContact,Uiid);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recyclerViewAdapter);
@@ -44,14 +62,11 @@ public class FragmentContact extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        blackListDao = new BlacklistDAO(getContext());
+        Uiid  = getArguments().getString("Uiid");
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Constants.Uiid);
+        getDataFireBase();
 
-        listContact = new ArrayList<>();
-        listContact.add(new Contact("Nhan Hoa 1", "0779339323","https://firebasestorage.googleapis.com/v0/b/qldanhba-fbcaa.appspot.com/o/User%2FNt08Mww7JQStFkxDHpZhBlNbcrH2%2F872622151?alt=media&token=3f459370-2c99-493f-8978-68efff6c8d6f", R.drawable.ic_call));
-        listContact.add(new Contact("Nhan Hoa 1", "0779339323","https://i.imgur.com/DvpvklR.png", R.drawable.ic_call));
-        listContact.add(new Contact("Nhan Hoa 1", "0779339323","https://i.imgur.com/DvpvklR.png", R.drawable.ic_call));
-        listContact.add(new Contact("Nhan Hoa 1", "0779339323","https://i.imgur.com/DvpvklR.png", R.drawable.ic_call));
-        listContact.add(new Contact("Nhan Hoa 1", "0779339323","https://i.imgur.com/DvpvklR.png", R.drawable.ic_call));
-        listContact.add(new Contact("Nhan Hoa 1", "0779339323","https://i.imgur.com/DvpvklR.png", R.drawable.ic_call));
     }
 
     @Override
@@ -73,6 +88,45 @@ public class FragmentContact extends Fragment {
             }
         });
 
+    }
+
+    public void getDataFireBase(){
+        DatabaseReference allContact = mDatabaseRef.child("contacts");
+        listContact = new ArrayList<>();
+
+        allContact.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listContact.clear();
+                blackListDao.DropDb();
+                for (DataSnapshot item : dataSnapshot.getChildren())
+                {
+
+                    Contact c = item.getValue(Contact.class);
+                    c.setKey(item.getKey());
+                    if(c.getBlock()==1 ){
+                       // Log.e("SDTB",c.getPhone()+"  da duoc dua vao");
+                       // MainActivity.blockList.add(new Blacklist(c.getPhone()));
+                        blackListDao.create(new Blacklist(c.getPhone()));
+
+                    }
+                    listContact.add(c);
+                }
+                MainActivity.blockList = blackListDao.getAllBlacklist();
+
+
+
+                recyclerView = v.findViewById(R.id.contact_recyclerview);
+                recyclerViewAdapter = new RecyclerViewAdapter(getContext(),listContact,Uiid);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                recyclerView.setAdapter(recyclerViewAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 }

@@ -177,7 +177,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
                 Intent home =  new Intent(context,SettingActivity.class);
                 Bundle bundle = new Bundle();
-                x.setAccess("abc");
+
                 bundle.putSerializable("User", x);
                 home.putExtra("UserBundle", bundle);
                 home.putExtra("flat",0);

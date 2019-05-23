@@ -25,7 +25,7 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
-        android:hint="Email"
+        android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
         android:textColor="@color/colorWhite"
         android:textSize="16dp" />
@@ -39,7 +39,7 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
-        android:hint="Password"
+        android:hint="@string/hint_pass"
         android:inputType="textPassword"
         android:textSize="16dp"
         android:textColor="@color/colorWhite"/>
@@ -53,7 +53,7 @@
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
-        android:hint="Confirm Password"
+        android:hint="@string/hint_conf_pass"
         android:inputType="textPassword"
         android:textSize="16dp"
         android:textColor="@color/colorWhite"/>
@@ -79,7 +79,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Sign up"
+                android:text="@string/signup"
                 android:textColor="#fff"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -92,6 +92,6 @@
         android:id="@+id/have_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Have an account."
+        android:text="@string/have_acc"
         android:layout_marginTop="40dp" />
 </LinearLayout>

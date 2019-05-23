@@ -33,7 +33,7 @@
                     android:id="@+id/change_img"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="sửa"
+                    android:text="@string/change"
                     android:textColor="@color/colorWhite"/>
             </LinearLayout>
 
@@ -46,7 +46,7 @@
                     android:id="@+id/lname_contact"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Họ..."
+                    android:hint="@string/hint_lname"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorHint"
                     android:background="@drawable/border_bottom"
@@ -56,7 +56,7 @@
                     android:id="@+id/name_contact"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Tên..."
+                    android:hint="@string/hint_fname"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorHint"
                     android:background="@drawable/border_bottom"/>
@@ -65,7 +65,7 @@
                     android:id="@+id/company_name"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:hint="Công ty..."
+                    android:hint="@string/hint_company"
                     android:textColor="@color/colorWhite"
                     android:textColorHint="@color/colorHint"
                     android:background="@drawable/border_bottom"/>
@@ -86,7 +86,7 @@
                 android:drawableLeft="@drawable/ic_remove_circle_red"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
-                android:text="điện thoại"
+                android:text="@string/phone"
                 android:textColor="@color/colorWhite"
                 android:layout_width="145dp"
                 android:layout_height="55dp"
@@ -99,75 +99,11 @@
                 android:layout_height="55dp"
                 android:padding="15dp"
                 android:background="@drawable/border_bottom"
-                android:hint="số điện thoại..."
+                android:hint="@string/number"
                 android:inputType="number"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint" />
         </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/container_home_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/border_bottom"
-            android:visibility="gone">
-            <TextView
-                android:id="@+id/remove_home_phone"
-                android:textSize="7.5pt"
-                android:drawableLeft="@drawable/ic_remove_circle_red"
-                android:drawablePadding="10dp"
-                android:padding="15dp"
-                android:text="nhà"
-                android:textColor="@color/colorWhite"
-                android:layout_width="145dp"
-                android:layout_height="55dp"
-                android:background="@drawable/border_right"
-                />
-
-            <EditText
-                android:id="@+id/home_contact"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:padding="15dp"
-                android:background="@drawable/border_bottom"
-                android:hint="số điện thoại..."
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorHint" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/container_company_phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:background="@drawable/border_bottom"
-            android:visibility="gone">
-            <TextView
-                android:id="@+id/remove_company_phone"
-                android:textSize="7.5pt"
-                android:drawableLeft="@drawable/ic_remove_circle_red"
-                android:drawablePadding="10dp"
-                android:padding="15dp"
-                android:text="công ty"
-                android:textColor="@color/colorWhite"
-                android:layout_width="145dp"
-                android:layout_height="55dp"
-                android:background="@drawable/border_right"
-                />
-
-            <EditText
-                android:id="@+id/company_contact"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
-                android:padding="15dp"
-                android:background="@drawable/border_bottom"
-                android:hint="số điện thoại..."
-                android:textColor="@color/colorWhite"
-                android:textColorHint="@color/colorHint" />
-        </LinearLayout>
-
-
 
         <LinearLayout
             android:id="@+id/container_home_address"
@@ -182,7 +118,7 @@
                 android:drawableLeft="@drawable/ic_remove_circle_red"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
-                android:text="địa chỉ"
+                android:text="@string/address"
                 android:textColor="@color/colorWhite"
                 android:layout_width="145dp"
                 android:layout_height="55dp"
@@ -195,7 +131,7 @@
                 android:layout_height="55dp"
                 android:padding="15dp"
                 android:background="@drawable/border_bottom"
-                android:hint="địa chỉ nhà..."
+                android:hint="@string/hint_address"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint" />
         </LinearLayout>
@@ -206,7 +142,7 @@
             android:drawableLeft="@drawable/ic_add_circle_green"
             android:drawablePadding="10dp"
             android:padding="15dp"
-            android:text="thêm địa chỉ nhà riêng"
+            android:text="@string/add_address"
             android:textColor="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -225,7 +161,7 @@
                 android:drawableLeft="@drawable/ic_remove_circle_red"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
-                android:text="gmail"
+                android:text="@string/gmail"
                 android:textColor="@color/colorWhite"
                 android:layout_width="145dp"
                 android:layout_height="55dp"
@@ -238,7 +174,7 @@
                 android:layout_height="55dp"
                 android:padding="15dp"
                 android:background="@drawable/border_bottom"
-                android:hint="tên gmail..."
+                android:hint="@string/hint_gmail"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint" />
         </LinearLayout>
@@ -249,7 +185,7 @@
             android:drawableLeft="@drawable/ic_add_circle_green"
             android:drawablePadding="10dp"
             android:padding="15dp"
-            android:text="thêm gmail"
+            android:text="@string/add_gmail"
             android:textColor="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -268,7 +204,7 @@
                 android:drawableLeft="@drawable/ic_remove_circle_red"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
-                android:text="facebook"
+                android:text="@string/facebook"
                 android:textColor="@color/colorWhite"
                 android:layout_width="145dp"
                 android:layout_height="55dp"
@@ -281,7 +217,7 @@
                 android:layout_height="55dp"
                 android:padding="15dp"
                 android:background="@drawable/border_bottom"
-                android:hint="tên facebook..."
+                android:hint="@string/hint_fb"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint" />
         </LinearLayout>
@@ -292,7 +228,7 @@
             android:drawableLeft="@drawable/ic_add_circle_green"
             android:drawablePadding="10dp"
             android:padding="15dp"
-            android:text="thêm facebook"
+            android:text="@string/add_fb"
             android:textColor="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -311,7 +247,7 @@
                 android:drawableLeft="@drawable/ic_remove_circle_red"
                 android:drawablePadding="10dp"
                 android:padding="15dp"
-                android:text="web"
+                android:text="@string/web"
                 android:textColor="@color/colorWhite"
                 android:layout_width="145dp"
                 android:layout_height="55dp"
@@ -324,7 +260,7 @@
                 android:layout_height="55dp"
                 android:padding="15dp"
                 android:background="@drawable/border_bottom"
-                android:hint="đường dẫn url..."
+                android:hint="@string/hint_url"
                 android:textColor="@color/colorWhite"
                 android:textColorHint="@color/colorHint" />
         </LinearLayout>
@@ -335,7 +271,7 @@
             android:drawableLeft="@drawable/ic_add_circle_green"
             android:drawablePadding="10dp"
             android:padding="15dp"
-            android:text="thêm url"
+            android:text="@string/add_url"
             android:textColor="@color/colorWhite"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -346,7 +282,7 @@
             android:gravity="center"
             android:textSize="9.5pt"
             android:paddingTop="15dp"
-            android:text="Chặn cuộc gọi"
+            android:text="@string/block_call"
             android:textColor="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="55dp" />
@@ -356,7 +292,7 @@
             android:gravity="center"
             android:textSize="9.5pt"
             android:paddingTop="15dp"
-            android:text="Bỏ chặn cuộc gọi"
+            android:text="@string/active_call"
             android:textColor="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="55dp"
@@ -366,7 +302,7 @@
             android:id="@+id/block_sms"
             android:gravity="center"
             android:textSize="9.5pt"
-            android:text="Chặn tin nhắn"
+            android:text="@string/block_sms"
             android:textColor="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="55dp" />
@@ -375,32 +311,20 @@
             android:id="@+id/active_sms"
             android:gravity="center"
             android:textSize="9.5pt"
-            android:text="Bỏ chặn tin nhắn"
+            android:text="@string/active_sms"
             android:textColor="@color/colorAccent"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:visibility="gone"/>
 
         <TextView
-            android:id="@+id/spam_sms"
-            android:gravity="center"
-            android:textSize="9.5pt"
-            android:text="Spam tin nhắn"
-            android:textColor="@color/colorAccent"
-            android:layout_width="match_parent"
-            android:layout_height="55dp" />
-
-        <TextView
             android:id="@+id/delete_contact"
             android:gravity="center"
             android:textSize="10pt"
-            android:text="Xóa liên hệ"
+            android:text="@string/delete_num"
             android:textColor="@color/colorRed"
             android:layout_width="match_parent"
             android:layout_height="55dp" />
     </LinearLayout>
-
-
-
 
 </ScrollView>

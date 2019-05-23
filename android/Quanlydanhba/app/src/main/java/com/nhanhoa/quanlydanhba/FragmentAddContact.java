@@ -44,6 +44,7 @@ public class FragmentAddContact extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         v = inflater.inflate(R.layout.add_contact_fragment, container, false);
         Uiid = getArguments().getString("Uiid");
+//        Log.e("def",Uiid);
         setWidget();
         setEventClickView();
         return  v;
@@ -224,7 +225,7 @@ public class FragmentAddContact extends Fragment {
             case R.id.add_new_phone:{
                 Intent home =  new Intent(getContext(),SettingActivity.class);
                 home.putExtra("flat",1);
-                home.putExtra("Uiid",Uiid);
+                home.putExtra("Uiid",Constants.Uiid);
                 home.putExtra("SDT",phoneContact.getText().toString().trim());
                 startActivity(home);
                 break;
@@ -249,7 +250,7 @@ public class FragmentAddContact extends Fragment {
                     startActivity(intent, Bundle.EMPTY);
                 }
                 else{
-                    Toast.makeText(getContext(), "Nhập số điện thoại", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), R.string.enter_num, Toast.LENGTH_SHORT).show();
                 }
 
                 break;

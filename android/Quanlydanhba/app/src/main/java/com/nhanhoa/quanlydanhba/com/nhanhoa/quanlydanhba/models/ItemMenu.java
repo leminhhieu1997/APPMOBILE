@@ -2,9 +2,9 @@ package com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models;
 
 public class ItemMenu {
     private int icon;
-    private String title;
+    private int title;
 
-    public ItemMenu(int icon, String title) {
+    public ItemMenu(int icon, int title) {
         this.icon = icon;
         this.title = title;
     }
@@ -17,11 +17,11 @@ public class ItemMenu {
         this.icon = icon;
     }
 
-    public String getTitle() {
+    public int getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(int title) {
         this.title = title;
     }
 }

@@ -1,29 +1,20 @@
 package com.nhanhoa.quanlydanhba;
 
-import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Intent;
 import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,13 +26,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.User;
+import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.Blacklist;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -81,6 +70,7 @@ public class SettingActivity extends AppCompatActivity
     private LinearLayout containerGmail;
     private LinearLayout containerFB;
     private LinearLayout containerURL;
+    private EditText homeAddress, gmail, fbName, url;
     private TextView activeCall;
     private TextView activeSMS;
     private UploadTask uploadTask;
@@ -97,6 +87,7 @@ public class SettingActivity extends AppCompatActivity
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
+       /// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setWidget();
         blockOrActive();
         //mStorageRef = FirebaseStorage.getInstance();
@@ -224,6 +215,20 @@ public class SettingActivity extends AppCompatActivity
                 removeSMSFromBlockList();
             }
         });
+
+
+        deleteContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                XoaContract(user.getKey());
+                Toast.makeText(getApplicationContext(),"xóa thành công",Toast.LENGTH_LONG).show();
+                Intent home =  new Intent(getApplicationContext(),MainActivity.class);
+                home.putExtra("Uiid",Uiid);
+                startActivity(home);
+                finish();
+
+            }
+        });
     }
 
 
@@ -255,8 +260,6 @@ public class SettingActivity extends AppCompatActivity
                     public void onComplete(@NonNull Task<Uri> task) {
                         if (task.isSuccessful()) {
                             Uri downloadUri = task.getResult();
-                            //AddData(downloadUri.toString(),friends.getKey());
-                            //Log.e("abcde",downloadUri.toString());
                             user.setImage(downloadUri.toString());
 
                         } else {
@@ -287,6 +290,12 @@ public class SettingActivity extends AppCompatActivity
 
             Picasso.get().load(selectedImage).into(imgContact);
             upGaleryProcess(selectedImage);
+            if(flat == 1){
+                //ThemContactDB(user);
+            }else{
+                CapNhatContactDB(user);
+            }
+
 
         }
     }
@@ -301,7 +310,31 @@ public class SettingActivity extends AppCompatActivity
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Toast.makeText(this, "Đã lưu", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, item.getItemId(), Toast.LENGTH_SHORT).show();
+        if(item.getItemId() == R.id.nav_edit){
+            if(nameContact.getText().length() == 0 || phoneContact.getText().length() == 0){
+                Toast.makeText(this ,R.string.err_null,Toast.LENGTH_LONG).show();
+                return false;
+            }else{
+                user.setPhone(phoneContact.getText().toString());
+                user.setName(nameContact.getText().toString());
+                user.setLastName(lnameContact.getText().toString());
+//            user.setCompany(companyContact.getText().toString());
+                user.setBlock(0);
+                //user.setImage("https://drive.google.com/file/d/1mcyhbFB2t4-rRwgmLNV7FSn8y93K6_rH/view?usp=sharing");
+            }
+            if(flat == 1){
+                user.setSttCall(R.drawable.ic_call_white);
+                //ThemContactDB(user);
+            }else{
+                //Log.e("def","CAp nhat db");
+                //CapNhatContactDB(user);
+            }
+
+            Toast.makeText(this, R.string.saved, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, nameContact.getText(), Toast.LENGTH_SHORT).show();
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -313,6 +346,10 @@ public class SettingActivity extends AppCompatActivity
         containerGmail = findViewById(R.id.container_gmail);
         containerFB = findViewById(R.id.container_fb);
         containerURL = findViewById(R.id.container_url);
+        homeAddress = findViewById(R.id.home_address);
+        gmail = findViewById(R.id.gmail);
+        fbName = findViewById(R.id.fb_name);
+        url = findViewById(R.id.url);
         addAddress = findViewById(R.id.add_address);
         addGmail = findViewById(R.id.add_gmail);
         addFB = findViewById(R.id.add_fb);
@@ -326,11 +363,13 @@ public class SettingActivity extends AppCompatActivity
         activeCall = findViewById(R.id.active_call);
         blockSMS = findViewById(R.id.block_sms);
         activeSMS = findViewById(R.id.active_sms);
+        //companyContact = findViewById(R.id.company_contact);
 
 
         lnameContact = findViewById(R.id.lname_contact);
         nameContact = findViewById(R.id.name_contact);
-        companyContact = findViewById(R.id.company_contact);
+        //companyContact = findViewById(R.id.company_contact);
+        deleteContact = findViewById(R.id.delete_contact);
 
 
         Intent intent = getIntent();
@@ -338,14 +377,17 @@ public class SettingActivity extends AppCompatActivity
         Uiid = intent.getStringExtra("Uiid");
 
         if(flat == 1){
-            phoneContact.setText(intent.getStringExtra("SDT"));
+            //String Phone = intent.getStringExtra("SDT");
+            user = new Contact();
             user.setPhone(intent.getStringExtra("SDT"));
+            phoneContact.setText(user.getPhone());
+//            user.setPhone(phoneContact.getText().toString());
         }else{
 
             Bundle bundle = intent.getBundleExtra("UserBundle");
-            user = (Contact) bundle.getSerializable("User");
+            user =  (Contact) bundle.getSerializable("User");
 
-            if (!user.getImage().equals("")) {
+            if (user.getImage()!=null) {
                 Picasso.get().load(user.getImage()).into(imgContact);
 
             }
@@ -356,32 +398,39 @@ public class SettingActivity extends AppCompatActivity
                 //containerHomeAddress.setText(user.getAccess());
             }
 
-            if(!user.getName().equals("")){
+            if(user.getName()!=null){
                 nameContact.setText(user.getName());
             }
 
-            if(user.getCompany()!= null){
-                //companyContact.setText(user.getCompany());
-               //có công ty
+            if(user.getCompany()!=null){
+                // có company
+                companyContact.setText(user.getCompany());
             }
 
             if(user.getAccess()!= null){
                 // có địa chỉ
+                addAddress();
+                homeAddress.setText(user.getAccess());
             }
+
             if(user.getGmail()!= null){
                // có mail
+                addGmail();
+                gmail.setText(user.getGmail());
             }
+
             if(user.getFacebook()!= null){
               // có facebook
+                addFB();
+                fbName.setText(user.getFacebook());
             }
+
             if(user.getUrl()!= null){
                //có url
+                addURL();
+                url.setText(user.getUrl());
             }
-
-
         }
-
-
     }
 
     protected void addAddress(){
@@ -407,21 +456,25 @@ public class SettingActivity extends AppCompatActivity
     protected void removeHomeAddress(){
         containerHomeAddress.setVisibility(View.GONE);
         addAddress.setVisibility(View.VISIBLE);
+        homeAddress.setText(null);
     }
 
     protected void removeGmail(){
         containerGmail.setVisibility(View.GONE);
         addGmail.setVisibility(View.VISIBLE);
+        gmail.setText(null);
     }
 
     protected void removeFB(){
         containerFB.setVisibility(View.GONE);
         addFB.setVisibility(View.VISIBLE);
+        fbName.setText(null);
     }
 
     protected void removeURL(){
         containerURL.setVisibility(View.GONE);
         addURL.setVisibility(View.VISIBLE);
+        url.setText(null);
     }
 
     protected void blockOrActive(){
@@ -444,28 +497,30 @@ public class SettingActivity extends AppCompatActivity
         //blackListDao.create(phone);
 
         // Show the success message to user
-        Toast.makeText(this, "Chặn thành công", Toast.LENGTH_SHORT).show();
+        user.setBlock(1);
+        Toast.makeText(this, R.string.blocked, Toast.LENGTH_SHORT).show();
     }
 
     protected void removePhoneFromBlockList(){
         blockCall.setVisibility(View.VISIBLE);
         activeCall.setVisibility(View.GONE);
+        user.setBlock(0);
         //blackListDao.delete(phoneContact.getText().toString());
-        Toast.makeText(this, "Đã hủy chặn", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.cancel_block, Toast.LENGTH_SHORT).show();
     }
 
     protected void addSMSToBlockList(){
         blockSMS.setVisibility(View.GONE);
         activeSMS.setVisibility(View.VISIBLE);
         //tuong tu chan cuoc goi
-        Toast.makeText(this, "Chặn thành công", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.blocked, Toast.LENGTH_SHORT).show();
     }
 
     protected void removeSMSFromBlockList(){
         blockSMS.setVisibility(View.VISIBLE);
         activeSMS.setVisibility(View.GONE);
         //tuong tu huy chan cuoc goi
-        Toast.makeText(this, "Đã hủy chặn", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.cancel_block, Toast.LENGTH_SHORT).show();
     }
     private String getFileExtension(Uri uri){
         ContentResolver cR = getContentResolver();
@@ -475,6 +530,14 @@ public class SettingActivity extends AppCompatActivity
 
     private void ThemContactDB(Contact m){
         mDatabaseRef = FirebaseDatabase.getInstance().getReference(Uiid);
-        mDatabaseRef.child("contacts").setValue(user);
+        mDatabaseRef.child("contacts").push().setValue(user);
+    }
+    private void CapNhatContactDB(Contact user){
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Uiid);
+        mDatabaseRef.child("contacts").child(user.getKey()).setValue(user);
+    }
+    protected void XoaContract(String id){
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Uiid);
+        mDatabaseRef.child("contacts").child(user.getKey()).removeValue();
     }
 }

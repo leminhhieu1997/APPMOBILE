@@ -45,7 +45,7 @@ public class FragmentCall extends Fragment {
         super.onCreate(savedInstanceState);
 
         listContact = new ArrayList<>();
-        listContact.add(new Contact("Nhan Hoa 1", "0779339323", "https://i.imgur.com/DvpvklR.png", R.drawable.ic_call_made));
+        listContact.add(new Contact("Nhan Hoa 1", "0779339323", "https://i.imgur.com/DvpvklR.png", R.drawable.ic_call_white));
         listContact.add(new Contact("Nhan Hoa 1", "0779339323", "https://i.imgur.com/DvpvklR.png", R.drawable.ic_call_made));
         listContact.add(new Contact("Nhan Hoa 1", "0779339323", "https://i.imgur.com/DvpvklR.png", R.drawable.ic_call_made));
         listContact.add(new Contact("Nhan Hoa 1", "0779339323", "https://i.imgur.com/DvpvklR.png", R.drawable.ic_call_made));

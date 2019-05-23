@@ -1,11 +1,18 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="DarkTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="gradient_1">@color/gradient_1</item>
+        <item name="gradient_2">#2A3c58</item>
+        <item name="gradient_3">#192943</item>
+        <item name="ic">#ffffff</item>
+        <item name="ic_black">#000000</item>
+        <item name="ic_red">#ff0000</item>
+        <item name="ic_green">#4CAF50</item>
     </style>
 
 </resources>

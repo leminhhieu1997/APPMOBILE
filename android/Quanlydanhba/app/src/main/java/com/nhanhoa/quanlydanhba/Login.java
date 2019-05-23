@@ -37,8 +37,8 @@ public class Login extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent home =  new Intent(getApplicationContext(),MainActivity.class);
-//                startActivity(home);
+                //Intent home =  new Intent(getApplicationContext(),MainActivity.class);
+                //startActivity(home);
                DangNhap();
 
             }
@@ -58,13 +58,14 @@ public class Login extends AppCompatActivity {
         register = findViewById(R.id.textView2);
     }
     private void DangNhap(){
+        Log.e("mau nen", R.attr.gradient_1 + "");
         String email = userName.getText().toString().trim();
         String password = pass.getText().toString().trim();
         if(email.equals("")||password.equals("")){
-            Toast.makeText(getApplicationContext(),"Các trường không được trống",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),R.string.err_null_1,Toast.LENGTH_LONG).show();
             return;
         }
-        Log.e("AAAA",email + password);
+        //Log.e("AAAA",email + password);
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -73,14 +74,15 @@ public class Login extends AppCompatActivity {
                             Log.e("abc", "onComplete: ");
 
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Toast.makeText(getApplicationContext(),"done: "+task.getResult()+"  "+user.getUid(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), R.string.done + " "+task.getResult()+"  "+user.getUid(),Toast.LENGTH_LONG).show();
                             Intent home =  new Intent(getApplicationContext(),MainActivity.class);
                             home.putExtra("Uiid",user.getUid());
+                            Constants.Uiid = user.getUid();
                             startActivity(home);
                             finish();
                         } else {
                             Log.e("AAA",task.getException().toString());
-                            Toast.makeText(getApplicationContext(),"Lỗi!!: "+ task.getException(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),R.string.err + " "+ task.getException(),Toast.LENGTH_LONG).show();
 
                         }
 

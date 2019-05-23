@@ -4,6 +4,12 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
@@ -15,6 +21,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,26 +30,42 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.NumberPicker;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
+import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.Dao.BlacklistDAO;
 import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.adapters.MenuAdapter;
+import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.Blacklist;
 import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.ItemMenu;
+import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.User;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity{
+    ImageView changeBackHeader;
+    LinearLayout backHeader;
     private LinearLayout itemEdit, itemLogout, itemHelp;
     private NavigationView nav;
 
-    private String Uiid;
+    public String Uiid;
     private DatabaseReference mData;
     private FirebaseStorage storage;
+
+    private BlacklistDAO blackListDao;
+
+    public static List<Blacklist> blockList;
 
 
     private List<ItemMenu> arrayMenu;
@@ -57,14 +80,55 @@ public class MainActivity extends AppCompatActivity{
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle drawerToggle;
 
+    public Uri selectedImage;
+    private static int RESULT_LOAD_IMAGE = 1;
+    CustomLayout myBackHeader;
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //db list
+        blackListDao = new BlacklistDAO(this);
+
+        // Fetch the list of Black listed numbers from Database using DAO object
+       // blackListDao.DropDb();
+        //blockList = blackListDao.getAllBlacklist();
+
+        // permissions
+        Permissions.checkAndRequest(this);
+
+        // init settings defaults
+        //Settings.initDefaults(this);
+        // Initialize the DAO object
+       // blackListDao = new BlacklistDAO(this);
+
+        // Fetch the list of Black listed numbers from Database using DAO object
+       // blockList = blackListDao.getAllBlacklist();
+
         Intent intent = getIntent();
         Uiid = intent.getStringExtra("Uiid");
-        mData = FirebaseDatabase.getInstance().getReference(Uiid);
+        mData = FirebaseDatabase.getInstance().getReference(Constants.Uiid);
+        mData.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange( DataSnapshot dataSnapshot) {
+                // User user = new User();
+
+                user = dataSnapshot.getValue(User.class);
+                user.setId(dataSnapshot.getKey());
+                //Log.e("data",user.getId());
+
+                //User x = user;
+                //return x;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         drawerLayout = findViewById(R.id.activity_main_drawer);
         drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -75,9 +139,9 @@ public class MainActivity extends AppCompatActivity{
         setWidget();
 
         arrayMenu = new ArrayList<>();
-        arrayMenu.add(new ItemMenu(R.drawable.ic_edit_black, "Sửa thông tin"));
-        arrayMenu.add(new ItemMenu(R.drawable.ic_exit_to_app_black, "Đăng xuất"));
-        arrayMenu.add(new ItemMenu(R.drawable.ic_help_outline_black, "Giúp đỡ"));
+        arrayMenu.add(new ItemMenu(R.drawable.ic_edit_black, R.string.fix_info));
+        arrayMenu.add(new ItemMenu(R.drawable.ic_exit_to_app_black, R.string.logout));
+        arrayMenu.add(new ItemMenu(R.drawable.ic_help_outline_black, R.string.help));
 
         menuAdapter = new MenuAdapter(this, R.layout.item_menu, arrayMenu);
         menu.setAdapter(menuAdapter);
@@ -134,29 +198,116 @@ public class MainActivity extends AppCompatActivity{
             }
         });
 
+        changeBackHeader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               // Toast.makeText(MainActivity.this, "back", Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(
+                        Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                startActivityForResult(i, RESULT_LOAD_IMAGE);
+            }
+        });
+
         menu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
                     case 0:{
                         //Toast.makeText(MainActivity.this, "edit", Toast.LENGTH_SHORT).show();
-                        Intent intent =  new Intent(getApplicationContext(),SettingActivity.class);
+                        Intent intent =  new Intent(getApplicationContext(),DetailUser.class);
+                        Bundle bundle = new Bundle();
+
+                        bundle.putSerializable("User", user);
+                        intent.putExtra("UserBundle", bundle);
+                        //home.putExtra("flat",0);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
                         //Toast.makeText(MainActivity.this, "logout", Toast.LENGTH_SHORT).show();
+                        FirebaseAuth.getInstance().signOut();
                         Intent intent =  new Intent(getApplicationContext(),Login.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Toast.makeText(MainActivity.this, "help", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, R.string.help, Toast.LENGTH_SHORT).show();
                         break;
                     }
                 }
             }
         });
+    }
+
+//    public void getifoUserUiid(){
+//
+//        mData.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange( DataSnapshot dataSnapshot) {
+//               // User user = new User();
+//
+//                User item = dataSnapshot.getValue(User.class);
+//                item.setId(dataSnapshot.getKey());
+//                Log.e("data",item.getId());
+//
+//                //User x = user;
+//                //return x;
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//
+//
+//        //return user;
+//
+//    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode ==  RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data && data.getData() != null) {
+            selectedImage = data.getData();
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+
+            Cursor cursor = getContentResolver().query(selectedImage,
+                    filePathColumn, null, null, null);
+            cursor.moveToFirst();
+
+            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+            String picturePath = cursor.getString(columnIndex);
+            cursor.close();
+
+            Picasso.get().load(selectedImage).into(new Target() {
+                @Override
+                public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                    backHeader.setBackground(new BitmapDrawable(bitmap));
+                }
+
+                @Override
+                public void onBitmapFailed(Exception e, Drawable errorDrawable) {
+
+                }
+
+                @Override
+                public void onPrepareLoad(Drawable placeHolderDrawable) {
+
+                }
+            });
+//            upGaleryProcess(selectedImage);
+//            if(flat == 1){
+//                //ThemContactDB(user);
+//            }else{
+//                CapNhatContactDB(user);
+//            }
+
+
+        }
     }
 
     private void setupTabIcons(int pos) {
@@ -187,6 +338,8 @@ public class MainActivity extends AppCompatActivity{
         tabLayout = findViewById(R.id.tabLayout_id);
         viewPager = findViewById(R.id.viewpaper_id);
 
+        changeBackHeader = findViewById(R.id.change_back_header);
+        backHeader = findViewById(R.id.back_header);
         menu = findViewById(R.id.menu);
         itemIcon = findViewById(R.id.item_icon);
         itemTitle = findViewById(R.id.item_title);
@@ -231,5 +384,22 @@ public class MainActivity extends AppCompatActivity{
             ActivityCompat.requestPermissions(this, listPermissions.toArray(new String[listPermissions.size()]), 1);
         }
     }
+
+
+   // @Override
+//    protected void onResume() {
+//        super.onResume();
+//
+//        // Initialize the DAO object
+//        blackListDao = new BlacklistDAO(this);
+//
+//        // Fetch the list of Black listed numbers from Database using DAO object
+//       // blackListDao.DropDb();
+//        blockList = blackListDao.getAllBlacklist();
+//
+//        //context.deleteDatabase(DATABASE_NAME);
+//
+//
+//    }
 
 }

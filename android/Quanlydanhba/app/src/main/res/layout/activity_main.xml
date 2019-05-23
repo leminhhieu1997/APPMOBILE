@@ -17,7 +17,7 @@
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBack"
+        android:background="?attr/ic_black"
         app:tabMode="fixed"
         app:tabGravity="fill"
         app:tabIndicatorColor="@color/colorAccent"
@@ -44,12 +44,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/white"
+            android:background="?attr/ic"
             android:orientation="vertical">
 
             <!-- Header -->
 
             <LinearLayout
+                android:id="@+id/back_header"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/navigation_header_height"
                 android:background="@drawable/background"
@@ -61,26 +62,39 @@
                 android:paddingTop="@dimen/activity_vertical_margin"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/activity_main_imv_avatar"
+                        android:paddingTop="@dimen/activity_vertical_margin"
+                        android:layout_width="80dp"
+                        android:layout_height="70dp"
+                        android:src="@drawable/hoa" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:id="@+id/activity_main_imv_avatar"
-                    android:paddingTop="@dimen/activity_vertical_margin"
-                    android:layout_width="80dp"
-                    android:layout_height="70dp"
-                    android:src="@drawable/hoa" />
+                    <ImageView
+                        android:background="@drawable/ripple"
+                        android:id="@+id/change_back_header"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_toys"
+                        android:layout_marginLeft="118dp"/>
+                </LinearLayout>
+
 
                 <TextView
-                    android:textSize="16sp"
                     android:id="@+id/activity_main_tv_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="@dimen/activity_vertical_margin"
                     android:text="Tên tui.."
-                    android:textColor="@color/colorBlueDark" />
+                    android:textColor="@color/colorBack"
+                    android:textSize="16sp" />
 
                 <TextView
-                    android:textColor="@color/colorBlueDark"
+                    android:textColor="@color/colorBack"
                     android:textSize="14sp"
                     android:id="@+id/activity_main_tv_email"
                     android:layout_width="wrap_content"

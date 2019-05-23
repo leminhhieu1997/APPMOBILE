@@ -49,7 +49,7 @@
             android:drawablePadding="20dp"
             android:gravity="start"
             android:padding="15dp"
-            android:text="Gọi"
+            android:text="@string/call"
             android:textAlignment="viewStart" />
 
         <Button
@@ -61,7 +61,7 @@
             android:drawablePadding="20dp"
             android:gravity="start"
             android:padding="15dp"
-            android:text="Nhắn tin"
+            android:text="@string/sms"
             android:textAlignment="viewStart" />
     </LinearLayout>
 

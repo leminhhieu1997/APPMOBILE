@@ -1,4 +1,4 @@
-package com.nhanhoa.quanlydanhba;
+package com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models;
 
 // Model class for database table blacklist
 public class Blacklist {

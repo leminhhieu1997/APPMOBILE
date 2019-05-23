@@ -58,11 +58,11 @@ public class Register extends AppCompatActivity {
         String comfirm_password = comfirm_pass.getText().toString().trim();
 
         if(email.equals("")||password.equals("")){
-            Toast.makeText(getApplicationContext(),"Các trường không được trống",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),R.string.err_null_1,Toast.LENGTH_LONG).show();
             return;
         }
         if(!password.equals(comfirm_password)){
-            Toast.makeText(getApplicationContext(),"Password and confirm Pass khong hop le",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),R.string.confirm_pass,Toast.LENGTH_LONG).show();
             return;
         }
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -71,12 +71,12 @@ public class Register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(getApplicationContext(),"Dang ky thanh cong",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),R.string.register_succ,Toast.LENGTH_LONG).show();
                             Intent intent =  new Intent(getApplicationContext(),Login.class);
                             startActivity(intent);
 
                         } else {
-                            Toast.makeText(getApplicationContext(),"Bug: "+task.getException(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),R.string.err + " " +task.getException(),Toast.LENGTH_LONG).show();
                             Log.e("AAA",task.getException().toString());
                             // If sign in fails, display a message to the user.
 
