@@ -21,6 +21,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -53,11 +54,14 @@ import com.squareup.picasso.Target;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class MainActivity extends AppCompatActivity{
     ImageView changeBackHeader;
     LinearLayout backHeader;
     private LinearLayout itemEdit, itemLogout, itemHelp;
     private NavigationView nav;
+    private CircleImageView activity_main_imv_avatar;
 
     public String Uiid;
     private DatabaseReference mData;
@@ -71,7 +75,7 @@ public class MainActivity extends AppCompatActivity{
     private List<ItemMenu> arrayMenu;
     private ListView menu;
     private ImageView itemIcon;
-    private TextView itemTitle;
+    private TextView itemTitle,activity_main_tv_user_name,activity_main_tv_email;
     private MenuAdapter menuAdapter;
 
     private TabLayout tabLayout;
@@ -87,6 +91,10 @@ public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.LightMode);
+        }
+        else setTheme(R.style.DarkTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -114,14 +122,20 @@ public class MainActivity extends AppCompatActivity{
         mData.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange( DataSnapshot dataSnapshot) {
-                // User user = new User();
 
                 user = dataSnapshot.getValue(User.class);
                 user.setId(dataSnapshot.getKey());
-                //Log.e("data",user.getId());
 
-                //User x = user;
-                //return x;
+                if(user.getName()!=null){
+                    activity_main_tv_user_name.setText(user.getName());
+                }
+                if(user.getLinkAvatar()!=null){
+                    Picasso.get().load(user.getLinkAvatar()).into(activity_main_imv_avatar);
+                }
+                if(user.getLinkBackground()!=null){
+                   // Picasso.get().load(user.getLinkBackground()).into(backHeader);
+                }
+                activity_main_tv_email.setText(user.getEmail());
             }
 
             @Override
@@ -337,12 +351,16 @@ public class MainActivity extends AppCompatActivity{
     private void setWidget(){
         tabLayout = findViewById(R.id.tabLayout_id);
         viewPager = findViewById(R.id.viewpaper_id);
+        activity_main_imv_avatar = findViewById(R.id.activity_main_imv_avatar);
+        activity_main_tv_user_name = findViewById(R.id.activity_main_tv_user_name);
+        activity_main_tv_email = findViewById(R.id.activity_main_tv_email);
 
         changeBackHeader = findViewById(R.id.change_back_header);
         backHeader = findViewById(R.id.back_header);
         menu = findViewById(R.id.menu);
         itemIcon = findViewById(R.id.item_icon);
         itemTitle = findViewById(R.id.item_title);
+
 
 
 

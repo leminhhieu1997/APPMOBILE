@@ -22,12 +22,12 @@
         android:id="@+id/userName"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:background="#11000000"
+        android:background="?attr/back_edt"
         android:drawableLeft="@drawable/ic_action_user"
         android:ems="10"
         android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
-        android:textColor="@color/colorWhite"
+        android:textColor="?attr/ic"
         android:textSize="16dp" />
 
     <EditText
@@ -36,13 +36,13 @@
         android:id="@+id/pass"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:background="#11000000"
+        android:background="?attr/back_edt"
         android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
         android:hint="@string/hint_pass"
         android:inputType="textPassword"
         android:textSize="16dp"
-        android:textColor="@color/colorWhite"/>
+        android:textColor="?attr/ic"/>
 
     <EditText
         android:layout_marginTop="30dp"
@@ -50,13 +50,13 @@
         android:id="@+id/comfirm_pass"
         android:layout_width="250dp"
         android:layout_height="40dp"
-        android:background="#11000000"
+        android:background="?attr/back_edt"
         android:drawableLeft="@drawable/ic_action_password"
         android:ems="10"
         android:hint="@string/hint_conf_pass"
         android:inputType="textPassword"
         android:textSize="16dp"
-        android:textColor="@color/colorWhite"/>
+        android:textColor="?attr/ic"/>
 
     <android.support.v7.widget.CardView
         android:layout_gravity="center"
@@ -86,7 +86,7 @@
     </android.support.v7.widget.CardView>
 
     <TextView
-        android:textColor="@color/colorWhite"
+        android:textColor="?attr/ic"
         android:background="@drawable/ripple_1"
         android:layout_gravity="center"
         android:id="@+id/have_login"

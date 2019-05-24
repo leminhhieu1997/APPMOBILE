@@ -62,6 +62,7 @@
     <string name="saved_1">Đã lưu</string>
     <string name="hint_fname_1">Tên</string>
     <string name="hint_lname_1">Họ</string>
-    <string name="night_mode">Chế độ ban đêm</string>
+    <string name="light_mode">Chế độ ban ngày</string>
+    <string name="delete_succ">Xóa thành công</string>
 
 </resources>

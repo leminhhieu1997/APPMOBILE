@@ -61,5 +61,6 @@
     <string name="saved_1">Saved</string>
     <string name="hint_fname_1">First name</string>
     <string name="hint_lname_1">Last name</string>
-    <string name="night_mode">Night mode</string>
+    <string name="light_mode">Light mode</string>
+    <string name="delete_succ">Xóa thành công</string>
 </resources>

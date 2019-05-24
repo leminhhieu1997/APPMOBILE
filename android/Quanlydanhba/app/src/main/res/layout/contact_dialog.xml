@@ -8,7 +8,7 @@
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorBack"
+        android:background="?attr/color_back_1"
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
@@ -25,7 +25,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:text="Tên liên hệ"
-            android:textColor="#ffffff"
+            android:textColor="?attr/ic"
             android:textSize="24dp"
             android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"
             android:text="Số điện thoại"
-            android:textColor="#ffffff"
+            android:textColor="?attr/ic"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -44,8 +44,9 @@
             android:id="@+id/btn_call"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:drawableLeft="@drawable/ic_call_black"
+            android:background="#fff"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/ic_call_black_1"
             android:drawablePadding="20dp"
             android:gravity="start"
             android:padding="15dp"
@@ -56,8 +57,9 @@
             android:id="@+id/btn_sms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:drawableLeft="@drawable/ic_sms_black"
+            android:background="#fff"
+            android:textColor="#000"
+            android:drawableLeft="@drawable/ic_sms_black_1"
             android:drawablePadding="20dp"
             android:gravity="start"
             android:padding="15dp"

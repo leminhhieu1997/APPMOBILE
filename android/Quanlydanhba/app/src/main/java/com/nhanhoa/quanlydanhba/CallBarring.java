@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 
 import com.nhanhoa.quanlydanhba.com.android.internal.telephony.ITelephony;
 import com.nhanhoa.quanlydanhba.com.nhanhoa.quanlydanhba.models.Blacklist;
@@ -26,10 +27,9 @@ public class CallBarring extends BroadcastReceiver
             // Else, try to do some action
         else
         {
+
             // Fetch the number of incoming call
             number = intent.getStringExtra(TelephonyManager.EXTRA_INCOMING_NUMBER);
-
-            // Check, whether this is a member of "Black listed" phone numbers stored in the database
             if(MainActivity.blockList.contains(new Blacklist(number)))
             {
                 // If yes, invoke the method

@@ -1,10 +1,13 @@
 package com.nhanhoa.quanlydanhba;
 
+import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.RecyclerViewAccessibilityDelegate;
@@ -34,6 +37,7 @@ import java.util.Map;
 
 public class FragmentContact extends Fragment {
     View v;
+    Context contextThemeWrapper;
     RecyclerView recyclerView;
     private List<Contact> listContact;
     RecyclerViewAdapter recyclerViewAdapter;
@@ -49,7 +53,14 @@ public class FragmentContact extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.contact_fragment, container, false);
+        //v = inflater.inflate(R.layout.contact_fragment, container, false);
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.LightMode);
+        }
+        else contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.DarkTheme);
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+        v = localInflater.inflate(R.layout.contact_fragment, container, false);
+
         recyclerView = v.findViewById(R.id.contact_recyclerview);
 
         recyclerViewAdapter = new RecyclerViewAdapter(getContext(),listContact,Uiid);

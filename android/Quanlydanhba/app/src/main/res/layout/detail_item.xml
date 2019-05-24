@@ -25,7 +25,7 @@
         android:padding="15dp"
         android:background="@drawable/border_bottom"
         android:hint="số điện thoại"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite" />
+        android:textColor="?attr/ic"
+        android:textColorHint="?attr/ic" />
 
 </LinearLayout>

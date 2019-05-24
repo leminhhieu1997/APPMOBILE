@@ -25,6 +25,8 @@ import java.io.Serializable;
 import android.widget.Button;
 
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -39,6 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     Dialog dialog;
    Contact x = new Contact();
    String Uiid;
+    private DatabaseReference mDatabaseRef;
 
     public RecyclerViewAdapter(Context context, List<Contact> data,String Uiid) {
         this.context = context;
@@ -154,7 +157,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         dialogName.setText(dataFiltered.get(viewHolder.getAdapterPosition()).getName());
         dialogPhone.setText(dataFiltered.get(viewHolder.getAdapterPosition()).getPhone());
-//        dialogPhoto.setImageURI(dataFiltered.get(viewHolder.getAdapterPosition()).getImage());
         Picasso.get().load(dataFiltered.get(viewHolder.getAdapterPosition()).getImage()).into(dialogPhoto);
 
         //Toast.makeText(context, "Chọn: " + String.valueOf(viewHolder.getAdapterPosition()), Toast.LENGTH_SHORT).show();
@@ -163,6 +165,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mDatabaseRef = FirebaseDatabase.getInstance().getReference(Constants.Uiid);
+                DatabaseReference addContact = mDatabaseRef.child("contacts_history");
+                x.setSttCall(R.drawable.ic_call_made);
+                addContact.push().setValue(x);
                 intentCall(position);
             }
         });

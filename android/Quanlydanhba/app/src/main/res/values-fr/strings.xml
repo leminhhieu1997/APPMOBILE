@@ -62,5 +62,6 @@
     <string name="saved_1">Saved</string>
     <string name="hint_fname_1">Prénom</string>
     <string name="hint_lname_1">Nom de famille</string>
-    <string name="night_mode">Mode nuit</string>
+    <string name="light_mode">Mode lumière</string>
+    <string name="delete_succ">Supprimer le succès</string>
 </resources>

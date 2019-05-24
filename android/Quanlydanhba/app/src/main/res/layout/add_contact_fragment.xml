@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorBack"
+    android:background="?attr/color_back"
     android:orientation="vertical"
     android:padding="16dp">
 
@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:maxLength="11"
-            android:textColor="@color/colorWhite"
+            android:textColor="?attr/ic"
             android:textSize="20pt" />
 
         <ImageView

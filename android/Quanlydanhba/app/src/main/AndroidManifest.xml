@@ -30,6 +30,7 @@
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+                <action android:name="com.pycitup.BroadcastReceiver" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

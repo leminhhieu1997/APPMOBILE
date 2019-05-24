@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/padding_extra_extra_large"
         android:text="Giúp đỡ"
-        android:textColor="@color/colorBack"
+        android:textColor="#000"
         android:textSize="16sp"/>
 
 

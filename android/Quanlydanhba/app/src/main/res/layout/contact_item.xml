@@ -23,7 +23,7 @@
         <TextView
             android:textSize="25dp"
 
-            android:textColor="#ffffff"
+            android:textColor="?attr/ic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
@@ -32,7 +32,7 @@
 
         <TextView
             android:textSize="20dp"
-            android:textColor="#ffffff"
+            android:textColor="?attr/ic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Số điện thoại"

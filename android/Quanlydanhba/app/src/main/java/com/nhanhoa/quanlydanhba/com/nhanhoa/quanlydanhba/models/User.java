@@ -18,6 +18,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class User implements Serializable {
     private String id;
+    private String fname;
     private String name;
     private  String password;
     private  String email;
@@ -35,5 +36,4 @@ public class User implements Serializable {
     //private String history;
     private String tokenNotification;
     private String linkBackground;
-   // private List<Contact> contacts ;
 }

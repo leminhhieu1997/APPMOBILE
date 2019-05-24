@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.app.AppCompatDelegate;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -84,14 +85,18 @@ public class SettingActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.LightMode);
+        }
+        else setTheme(R.style.DarkTheme);
         // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
        /// getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setWidget();
         blockOrActive();
-        //mStorageRef = FirebaseStorage.getInstance();
-       // storageRef = mStorageRef.getReference();
+//        mStorageRef = FirebaseStorage.getInstance();
+//        storageRef = mStorageRef.getReference();
 
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
@@ -221,7 +226,7 @@ public class SettingActivity extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 XoaContract(user.getKey());
-                Toast.makeText(getApplicationContext(),"xóa thành công",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),R.string.delete_succ, Toast.LENGTH_LONG).show();
                 Intent home =  new Intent(getApplicationContext(),MainActivity.class);
                 home.putExtra("Uiid",Uiid);
                 startActivity(home);
@@ -233,7 +238,7 @@ public class SettingActivity extends AppCompatActivity
 
 
     private void upGaleryProcess(Uri linkAnh){
-        final StorageReference riversRef = mStorageRef.child("User/"+Uiid+"/"+linkAnh.getLastPathSegment());
+        final StorageReference riversRef = mStorageRef.child("User/"+Constants.Uiid+"/"+linkAnh.getLastPathSegment());
         uploadTask = riversRef.putFile(linkAnh);
         uploadTask.addOnFailureListener(new OnFailureListener() {
             @Override
@@ -289,11 +294,9 @@ public class SettingActivity extends AppCompatActivity
             cursor.close();
 
             Picasso.get().load(selectedImage).into(imgContact);
-            upGaleryProcess(selectedImage);
             if(flat == 1){
-                //ThemContactDB(user);
-            }else{
-                CapNhatContactDB(user);
+                flat = 2;
+
             }
 
 
@@ -319,16 +322,25 @@ public class SettingActivity extends AppCompatActivity
                 user.setPhone(phoneContact.getText().toString());
                 user.setName(nameContact.getText().toString());
                 user.setLastName(lnameContact.getText().toString());
+                //user.setSttCall(R.id.stt_call);
 //            user.setCompany(companyContact.getText().toString());
                 user.setBlock(0);
                 //user.setImage("https://drive.google.com/file/d/1mcyhbFB2t4-rRwgmLNV7FSn8y93K6_rH/view?usp=sharing");
             }
             if(flat == 1){
+                user.setImage("https://firebasestorage.googleapis.com/v0/b/qldanhba-fbcaa.appspot.com/o/abc.jpg?alt=media&token=076541f5-8ff9-40ff-8106-f3583e64fd1b");
                 user.setSttCall(R.drawable.ic_call_white);
-                //ThemContactDB(user);
+                ThemContactDB(user);
             }else{
+                if(flat==2){
+                    user.setSttCall(R.drawable.ic_call_white);
+                    upGaleryProcess(selectedImage);
+                    ThemContactDB(user);
+
+                }
                 //Log.e("def","CAp nhat db");
-                //CapNhatContactDB(user);
+                user.setSttCall(R.drawable.ic_call_white);
+                CapNhatContactDB(user);
             }
 
             Toast.makeText(this, R.string.saved, Toast.LENGTH_SHORT).show();
@@ -529,15 +541,15 @@ public class SettingActivity extends AppCompatActivity
     }
 
     private void ThemContactDB(Contact m){
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Uiid);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Constants.Uiid);
         mDatabaseRef.child("contacts").push().setValue(user);
     }
     private void CapNhatContactDB(Contact user){
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Uiid);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Constants.Uiid);
         mDatabaseRef.child("contacts").child(user.getKey()).setValue(user);
     }
     protected void XoaContract(String id){
-        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Uiid);
+        mDatabaseRef = FirebaseDatabase.getInstance().getReference(Constants.Uiid);
         mDatabaseRef.child("contacts").child(user.getKey()).removeValue();
     }
 }

@@ -10,6 +10,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ContextThemeWrapper;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -25,16 +27,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import static android.provider.MediaStore.Images.ImageColumns.DESCRIPTION;
 import static android.provider.MediaStore.MediaColumns.TITLE;
 import static android.support.v4.content.ContextCompat.startActivity;
 
 public class FragmentAddContact extends Fragment {
     View v;
+    Context contextThemeWrapper;
     private Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btnStar, btn0, btnSharp;
     private ImageView addNewPhone, backspace, call;
     private EditText phoneContact;
     private String Uiid;
+    private DatabaseReference mDatabaseRef;
 
     public FragmentAddContact() {
     }
@@ -42,12 +49,19 @@ public class FragmentAddContact extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        v = inflater.inflate(R.layout.add_contact_fragment, container, false);
+        if(AppCompatDelegate.getDefaultNightMode() == AppCompatDelegate.MODE_NIGHT_YES) {
+            contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.LightMode);
+        }
+        else contextThemeWrapper = new ContextThemeWrapper(getActivity(), R.style.DarkTheme);
+        LayoutInflater localInflater = inflater.cloneInContext(contextThemeWrapper);
+        //v = inflater.inflate(R.layout.add_contact_fragment, container, false);
+        v = localInflater.inflate(R.layout.add_contact_fragment, container, false);
         Uiid = getArguments().getString("Uiid");
 //        Log.e("def",Uiid);
         setWidget();
         setEventClickView();
-        return  v;
+        return v;
+        //return  v;
     }
 
     public void setWidget(){
@@ -223,6 +237,9 @@ public class FragmentAddContact extends Fragment {
             }
 
             case R.id.add_new_phone:{
+                if(phoneContact.getText().length() == 0){
+                    return;
+                }
                 Intent home =  new Intent(getContext(),SettingActivity.class);
                 home.putExtra("flat",1);
                 home.putExtra("Uiid",Constants.Uiid);
@@ -242,6 +259,13 @@ public class FragmentAddContact extends Fragment {
                     TelephonyManager telephonyManager = (TelephonyManager) getActivity()
                             .getSystemService(Context.TELEPHONY_SERVICE);
                     telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);
+
+                    mDatabaseRef = FirebaseDatabase.getInstance().getReference(Constants.Uiid);
+                    DatabaseReference addContact = mDatabaseRef.child("contacts_history");
+                    Contact x = new Contact();
+                    x.setSttCall(R.drawable.ic_call_made);
+                    x.setPhone(phoneContact.getText().toString().trim());
+                    addContact.push().setValue(x);
 
                     Intent intent = new Intent();//keu goi lam mot hanh dong nao do, trao doi du lieu trong cung 1 ung dung hoac giua cac ung dung vs nhau
                     intent.setAction(Intent.ACTION_CALL);
@@ -290,7 +314,7 @@ public class FragmentAddContact extends Fragment {
                     Log.i(LOG_TAG, "restart app");
 
                     FragmentManager fm = getFragmentManager();
-                    fm.popBackStack ();
+//                    fm.popBackStack ();
                     isPhoneCalling = false;
                 }
 
